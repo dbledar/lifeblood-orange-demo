@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dcgj072ur40jp"]
+
+[ext_resource type="Script" uid="uid://dwff21i526ki2" path="res://scr/title_screen.gd" id="1_fgkus"]
+
+[node name="title_screen" type="Control" unique_id=980796920]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fgkus")
+
+[node name="margin" type="MarginContainer" parent="." unique_id=1593202593]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="vbox" type="VBoxContainer" parent="margin" unique_id=1841865658]
+layout_mode = 2
+
+[node name="center" type="CenterContainer" parent="margin/vbox" unique_id=84554960]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="menu" type="VBoxContainer" parent="margin/vbox/center" unique_id=450970164]
+layout_mode = 2
+
+[node name="title" type="Label" parent="margin/vbox/center/menu" unique_id=402283477]
+layout_mode = 2
+text = "Lifeblood: Orange"
+
+[node name="play" type="Button" parent="margin/vbox/center/menu" unique_id=1495654260]
+layout_mode = 2
+text = "Play"
+
+[node name="settings" type="Button" parent="margin/vbox/center/menu" unique_id=976481523]
+layout_mode = 2
+text = "Settings"
+
+[node name="quit" type="Button" parent="margin/vbox/center/menu" unique_id=497072325]
+layout_mode = 2
+text = "Quit"
+
+[node name="footer" type="HBoxContainer" parent="margin/vbox" unique_id=1703136873]
+layout_mode = 2
+
+[node name="spacer" type="Control" parent="margin/vbox/footer" unique_id=1665938175]
+layout_mode = 2
+
+[node name="version" type="Label" parent="margin/vbox/footer" unique_id=719334435]
+layout_mode = 2
+text = "Demo v0.1"

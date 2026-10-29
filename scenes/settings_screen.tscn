@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dm1tlm5ip3x6r"]
+
+[ext_resource type="Script" uid="uid://cp3heklqm3nr2" path="res://scr/settings_screen.gd" id="1_srqes"]
+
+[node name="settings" type="Control" unique_id=407964079]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_srqes")
+
+[node name="margin" type="MarginContainer" parent="." unique_id=2092277914]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="vbox" type="VBoxContainer" parent="margin" unique_id=1275353747]
+layout_mode = 2
+
+[node name="window_type" type="HBoxContainer" parent="margin/vbox" unique_id=1883221800]
+layout_mode = 2
+
+[node name="window_label" type="Label" parent="margin/vbox/window_type" unique_id=529784631]
+layout_mode = 2
+text = "Window Type"
+
+[node name="window_options" type="OptionButton" parent="margin/vbox/window_type" unique_id=926449596]
+layout_mode = 2
+
+[node name="audio_heading" type="Label" parent="margin/vbox" unique_id=1514027123]
+layout_mode = 2
+text = "Audio"
+
+[node name="audio_rows" type="VBoxContainer" parent="margin/vbox" unique_id=1061225135]
+layout_mode = 2
+
+[node name="master" type="HBoxContainer" parent="margin/vbox/audio_rows" unique_id=1269856096]
+layout_mode = 2
+
+[node name="label" type="Label" parent="margin/vbox/audio_rows/master" unique_id=403935438]
+layout_mode = 2
+text = "Master"
+
+[node name="slider" type="HSlider" parent="margin/vbox/audio_rows/master" unique_id=1209124161]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="music" type="HBoxContainer" parent="margin/vbox/audio_rows" unique_id=2035663564]
+layout_mode = 2
+
+[node name="label" type="Label" parent="margin/vbox/audio_rows/music" unique_id=578632708]
+layout_mode = 2
+text = "Music"
+
+[node name="slider" type="HSlider" parent="margin/vbox/audio_rows/music" unique_id=1632820202]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="sfx" type="HBoxContainer" parent="margin/vbox/audio_rows" unique_id=40800078]
+layout_mode = 2
+
+[node name="label" type="Label" parent="margin/vbox/audio_rows/sfx" unique_id=773539330]
+layout_mode = 2
+text = "SFX"
+
+[node name="slider" type="HSlider" parent="margin/vbox/audio_rows/sfx" unique_id=238591246]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="voice" type="HBoxContainer" parent="margin/vbox/audio_rows" unique_id=1841759502]
+layout_mode = 2
+
+[node name="label" type="Label" parent="margin/vbox/audio_rows/voice" unique_id=405321763]
+layout_mode = 2
+text = "Voice"
+
+[node name="slider" type="HSlider" parent="margin/vbox/audio_rows/voice" unique_id=904383099]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="back" type="Button" parent="margin/vbox" unique_id=75059204]
+layout_mode = 2
+text = "< Back"
