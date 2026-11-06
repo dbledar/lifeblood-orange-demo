@@ -53,4 +53,4 @@ layout_mode = 2
 
 [node name="version" type="Label" parent="margin/vbox/footer" unique_id=719334435]
 layout_mode = 2
-text = "Demo v0.2"
+text = "Demo v0.2.1"
