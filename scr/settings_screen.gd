@@ -1,5 +1,7 @@
 extends Control
 
+const TITLE_SCREEN = 'res://scenes/title_screen.tscn'
+
 @onready var window_type : OptionButton = $margin/vbox/window_type/window_options
 @onready var master_slider : HSlider = $margin/vbox/audio_rows/master/slider
 @onready var music_slider : HSlider = $margin/vbox/audio_rows/music/slider
@@ -54,4 +56,9 @@ func on_volume_changed(value : float, bus_name : StringName) -> void:
 		AudioServer.set_bus_volume_linear(bus_index, value / 100.0)
 
 func on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file('res://scenes/title_screen.tscn')
+	get_tree().change_scene_to_file(TITLE_SCREEN)
+
+func _unhandled_key_input(event: InputEvent) -> void:
+	if event.is_action_pressed('ui_cancel'):
+		get_viewport().set_input_as_handled()
+		get_tree().change_scene_to_file(TITLE_SCREEN)

@@ -14,6 +14,11 @@ config/name="lifeblood-orange-demo"
 run/main_scene="res://scenes/title_screen.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
+[autoload]
+
+MenuMusic="*uid://vq812aylyfhg"
+SaveManager="*uid://clfl6hirejd4q"
+
 [display]
 
 window/stretch/mode="canvas_items"

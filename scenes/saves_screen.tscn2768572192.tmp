@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://biruvljvuscne"]
+
+[ext_resource type="Script" uid="uid://y8lft1bt43p7" path="res://scr/saves_screen.gd" id="1_qle7y"]
+
+[node name="saves" type="Control" unique_id=632978434]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qle7y")
+
+[node name="margin" type="MarginContainer" parent="." unique_id=1790485824]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="layout" type="VBoxContainer" parent="margin" unique_id=44377598]
+layout_mode = 2
+
+[node name="saves" type="VBoxContainer" parent="margin/layout" unique_id=1062729868]
+layout_mode = 2
+
+[node name="slot_1" type="HBoxContainer" parent="margin/layout/saves" unique_id=1059742134]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="select" type="Button" parent="margin/layout/saves/slot_1" unique_id=2109475885]
+layout_mode = 2
+
+[node name="delete" type="Button" parent="margin/layout/saves/slot_1" unique_id=1709585606]
+layout_mode = 2
+
+[node name="slot_2" type="HBoxContainer" parent="margin/layout/saves" unique_id=715340976]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="select" type="Button" parent="margin/layout/saves/slot_2" unique_id=1813027111]
+layout_mode = 2
+
+[node name="delete" type="Button" parent="margin/layout/saves/slot_2" unique_id=1987214578]
+layout_mode = 2
+
+[node name="slot_3" type="HBoxContainer" parent="margin/layout/saves" unique_id=633234910]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="select" type="Button" parent="margin/layout/saves/slot_3" unique_id=817371401]
+layout_mode = 2
+
+[node name="delete" type="Button" parent="margin/layout/saves/slot_3" unique_id=2145865722]
+layout_mode = 2
+
+[node name="footer" type="HBoxContainer" parent="margin/layout" unique_id=410934028]
+layout_mode = 2
+
+[node name="back" type="Button" parent="margin/layout/footer" unique_id=349947630]
+layout_mode = 2
+
+[node name="spacer" type="Control" parent="margin/layout/footer" unique_id=115328102]
+layout_mode = 2
