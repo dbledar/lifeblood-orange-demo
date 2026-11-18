@@ -31,6 +31,8 @@ func _ready() -> void:
 
 
 func on_window_type_selected(index: int) -> void:
+	'''Sets the window type depending on the option selected from
+	the dropdown menu'''
 	match index:
 		0:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -44,6 +46,7 @@ func on_window_type_selected(index: int) -> void:
 
 
 func connect_volume_slider(slider: HSlider, bus_name: StringName) -> void:
+	'''Connects the audio busses to the GUI sliders'''
 	var bus_index := AudioServer.get_bus_index(bus_name)
 	if bus_index < 0:
 		push_warning('Audio bus not found: ' + bus_name)
@@ -54,16 +57,19 @@ func connect_volume_slider(slider: HSlider, bus_name: StringName) -> void:
 
 
 func on_volume_changed(value: float, bus_name: StringName) -> void:
+	'''Updates volume when slider is changed'''
 	var bus_index := AudioServer.get_bus_index(bus_name)
 	if bus_index >= 0:
 		AudioSettings.set_bus_volume(bus_name, value / 100.0)
 
 
 func on_back_button_pressed() -> void:
+	'''Input detection for back button'''
 	get_tree().change_scene_to_file(TITLE_SCREEN)
 
 
 func _unhandled_key_input(event: InputEvent) -> void:
+	'''Allows going back to the title screen when pressing Escape'''
 	if event.is_action_pressed('ui_cancel'):
 		get_viewport().set_input_as_handled()
 		get_tree().change_scene_to_file(TITLE_SCREEN)

@@ -7,6 +7,8 @@ const OPENING_SCENE = 'res://scenes/opening_sequence.tscn'
 
 
 func _ready() -> void:
+	'''Connects the back, select, and delete buttons to their respective
+	input functions'''
 	back_button.pressed.connect(on_back_pressed)
 
 	for slot in range(1, 4):
@@ -21,6 +23,8 @@ func _ready() -> void:
 
 
 func refresh_slots() -> void:
+	'''Refreshes the contents of the save slots based on player
+	progress.'''
 	for slot in range(1, 4):
 		var row_path := 'margin/layout/saves/slot_%d' % slot
 		var select_button: Button = get_node(row_path + '/select')
@@ -36,6 +40,8 @@ func refresh_slots() -> void:
 
 
 func make_save_summary(slot: int, save_data: Dictionary) -> String:
+	'''Writes the summary of player progress that appears on the save
+	slot button'''
 	var tools: Array = save_data.get('tools', [])
 	var tool_names := PackedStringArray()
 
@@ -59,6 +65,7 @@ func make_save_summary(slot: int, save_data: Dictionary) -> String:
 
 
 func format_play_time(total_seconds: int) -> String:
+	'''Formats play time to hour:minute:second'''
 	var hours := int(total_seconds / 3600.0)
 	var minutes := int((total_seconds % 3600) / 60.0)
 	var seconds := total_seconds % 60
@@ -67,6 +74,7 @@ func format_play_time(total_seconds: int) -> String:
 
 
 func on_select_pressed(slot: int) -> void:
+	'''Input detection for select buttons'''
 	SaveManager.selected_slot = slot
 
 	if SaveManager.has_slot(slot):
@@ -81,12 +89,14 @@ func on_select_pressed(slot: int) -> void:
 
 
 func on_delete_pressed(slot: int) -> void:
+	'''Input detection for delete buttons'''
 	if SaveManager.has_slot(slot):
 		SaveManager.delete_slot(slot)
 		refresh_slots()
 
 
 func on_back_pressed() -> void:
+	'''Input detection for the back button'''
 	get_tree().change_scene_to_file(TITLE_SCREEN)
 
 

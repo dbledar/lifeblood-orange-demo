@@ -9,6 +9,7 @@ func _ready() -> void:
 
 
 func load_audio_settings() -> void:
+	'''Loads saved audio settings'''
 	var config := ConfigFile.new()
 
 	if config.load(SETTINGS_PATH) != OK:
@@ -25,6 +26,8 @@ func load_audio_settings() -> void:
 
 
 func set_bus_volume(bus_name: StringName, volume: float) -> void:
+	'''Sets volume levels depending on the position of each
+	volume slider'''
 	var bus_index := AudioServer.get_bus_index(bus_name)
 	if bus_index < 0:
 		push_warning('Audio bus not found ' + str(bus_name))
@@ -35,6 +38,7 @@ func set_bus_volume(bus_name: StringName, volume: float) -> void:
 
 
 func save_audio_settings() -> void:
+	'''Saves the audio settings upon update'''
 	var config := ConfigFile.new()
 	config.load(SETTINGS_PATH)
 	for bus_name in BUS_NAMES:

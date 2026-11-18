@@ -7,18 +7,23 @@ var selected_slot : int = 0
 var pending_save : Dictionary = {}
 
 func slot_path(slot : int) -> String:
+	'''Returns the path to the save slot in the user config file'''
 	return 'user://save_slot_%d.cfg' % slot
 
 func is_valid_slot(slot : int) -> bool:
+	'''Returns True if the save slot is valid (slot 1-3)'''
 	return slot >= 1 and slot <= SLOT_COUNT
 
 func has_slot(slot : int) -> bool:
+	'''Returns True if the save slot exists and is valid'''
 	if not is_valid_slot(slot):
 		return false
 	
 	return FileAccess.file_exists(slot_path(slot))
 
 func read_slot(slot : int) -> Dictionary:
+	'''Copies the contents of the save slot to a dictionary,
+	if it exists and if it is valid'''
 	if not is_valid_slot(slot) or not has_slot(slot):
 		return {}
 	
@@ -37,6 +42,7 @@ func read_slot(slot : int) -> Dictionary:
 	return save_data
 
 func write_slot(slot : int, save_data : Dictionary):
+	'''Changes the contents of the save file, if it is valid'''
 	if not is_valid_slot(slot):
 		push_warning('Invalid save slot: %d' % slot)
 		return ERR_INVALID_PARAMETER
@@ -52,8 +58,9 @@ func write_slot(slot : int, save_data : Dictionary):
 		push_warning('Could not write save slot %d.' % slot)
 	
 	return error
-	
+
 func delete_slot(slot : int):
+	'''Deletes the save slot, if it is valid'''
 	if not is_valid_slot(slot):
 		push_warning('Invalid save slot: %d' % slot)
 		return ERR_INVALID_PARAMETER
@@ -82,6 +89,7 @@ func save_progress(
 	play_time_seconds : int,
 	ending_reached : bool
 ):
+	'''Gathers current player info and writes it to the user config file'''
 	if not is_valid_slot(selected_slot):
 		push_warning('Select a save slot before saving progress.')
 		return ERR_INVALID_PARAMETER
